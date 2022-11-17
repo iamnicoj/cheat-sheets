@@ -1,5 +1,7 @@
 # Linux Basics
 
+ for **Linux ([[linux]])**
+
 ## Change Hostname
 
 ```bash

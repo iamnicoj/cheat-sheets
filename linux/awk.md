@@ -288,6 +288,13 @@ Either one will work.
 
  # print section of file between two regular expressions (inclusive)
  awk '/Iowa/,/Montana/'             # case sensitive
+
+ # print first column only
+ awk '{ print $1 }'
+
+ # select if first colum is a guid
+ awk '$1  ~ /[({]?[a-fA-F0-9]{8}[-]?([a-fA-F0-9]{4}[-]?){3}[a-fA-F0-9]{12}[})]?/'
+
 ```
 
 ### Selective Deletion of Certain Lines
