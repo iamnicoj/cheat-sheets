@@ -92,3 +92,39 @@ Deleting cluster "testcluster" ...
 More examples and tutorials regarding Proxmox can be found in the link list below:
 
 - Creating an Ansible playbook to manage Kind cluster: [Lightweight Kubernetes cluster using Kind and Ansible](https://thedatabaseme.de/2022/04/22/lightweight-kubernetes-cluster-using-kind-and-ansible/)
+
+____
+Cluster example from kubecon2022 using [[podman]]
+
+```yaml
+cat > kind-dev.yaml << EOF
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+kubeadmConfigPatches:
+- |
+  apiVersion: kubeadm.k8s.io/v1beta2
+  kind: ClusterConfiguration
+  metadata:
+    name: config
+  apiServer:
+    extraArgs:
+      "service-account-issuer": "kubernetes.default.svc"
+      "service-account-signing-key-file": "/etc/kubernetes/pki/sa.key"
+networking:
+  # the default CNI will not be installed if you enable it, usefull to install Cilium !
+  disableDefaultCNI: false
+nodes:
+- role: control-plane
+  image: kindest/node:v1.24.4@sha256:adfaebada924a26c2c9308edd53c6e33b3d4e453782c0063dc0028bdebaddf98
+- role: worker
+  image: kindest/node:v1.24.4@sha256:adfaebada924a26c2c9308edd53c6e33b3d4e453782c0063dc0028bdebaddf98
+  extraPortMappings:
+  - containerPort: 80
+    hostPort: 3080
+    listenAddress: "0.0.0.0"
+  - containerPort: 443
+    hostPort: 3443
+    listenAddress: "0.0.0.0"
+EOF
+
+```
