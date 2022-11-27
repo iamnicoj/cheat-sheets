@@ -26,10 +26,11 @@ _- On Windows keyboards use the Alt key instead of ⌥ + , and the Windows logo 
 ## Cut, copy, paste, and other common shortcuts
 
 | keys          | description                                                                                                   |
-| :------------ | :------------------------------------------------------------------------------------------------------------ |
+|:------------- |:------------------------------------------------------------------------------------------------------------- |
 | ⌘ + x         | Cut the selected item and copy it to the Clipboard                                                            |
 | ⌘ + c         | Copy the selected item to the Clipboard. This also works for files in the Finder                              |
 | ⌘ + v         | Paste the contents of the Clipboard into the current document or app. This also works for files in the Finder |
+|⇧ + ⌘ + ⌥ + v | Paste without format|
 | ⌘ + z         | Undo the previous comamnd                                                                                     |
 | ⇧ + ⌘ + z     | Redo, reversing the undo command                                                                              |
 | ⌘ + a         | Select All items                                                                                              |
