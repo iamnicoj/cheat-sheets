@@ -128,3 +128,11 @@ nodes:
 EOF
 
 ```
+
+Command to run 
+
+```
+kind create cluster --name=dev --config kind-dev.yaml -v9 --retain
+```
+
+More [here](https://cloud-native-canada.github.io/k8s_setup_tools/local_cluster/kind/)

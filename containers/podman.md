@@ -41,3 +41,10 @@ Point the default Docker socket to the Podman socket. This is needed as some app
 export DOCKER_HOST="unix://$HOME/.local/share/containers/podman/machine/podman-machine-default/podman.sock"
 
 ```
+
+After a reboot, `podman` will be disabled. To recover podman and `kind` containers re-run following steps:
+
+``` bash
+podman machine start
+podman start --all
+```
